@@ -1,5 +1,5 @@
 {
-  "name": "website-boilerplate",
+  "name": "gulp-website-boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate for Website with Gulp.js",
   "main": "gulpfile.js",
