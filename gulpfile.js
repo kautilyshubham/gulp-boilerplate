@@ -7,6 +7,8 @@ const del = require('delete');
 
 // for css
 const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
+
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');// autoprefixer
 const cssnano = require('cssnano'); // minified code css
@@ -43,7 +45,7 @@ function clean(cb) {
 
 //css functions
 function css() {
-  return src('source/sass/style.scss')
+  return src('source/scss/*.scss')
   .pipe(sourcemaps.init()) //source map intilise
     .pipe(sass().on('error', sass.logError))
     // .pipe(concat('style.css'))// filename for css
@@ -78,7 +80,7 @@ function javascript(){
 
 //watch function
 function watchFiles(){
-  watch(["source/sass/*.scss"], css)
+  watch(["source/scss/*.scss"], css)
   watchfiles(["source/img"], series(image,browserSync.reload))
   watchfiles(["source/*.html"], series(html,browserSync.reload))
 
